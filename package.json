@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "drive": "^0.1.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "name": "it_event_webiste_solent_valeri-",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "coffee-script": "^1.12.7",
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
