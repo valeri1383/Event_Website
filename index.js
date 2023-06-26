@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const mysql = require("mysql");
+
+
 
 
 app.use('/public', express.static('public'))
@@ -22,7 +25,11 @@ app.get('/schedule', (req,res) => {
 })
 
 app.get('/speakers', (req,res) => {
-    res.render('speakers')
+    db.query('SELECT * FROM WEBSITE_DATABASE.Speakers;',(err, results)=>{
+        if (err) throw err;
+        res.render('speakers', {data: results})
+        console.log(results)
+    })
 })
 
 app.get('/venue', (req,res) => {
@@ -36,6 +43,20 @@ app.get('/faq', (req,res) => {
 app.get('/contact', (req,res) => {
     res.render('contact')
 })
+
+
+const db = mysql.createConnection({
+	host: "localhost",
+	user: "user",
+	password: "valeri1383",
+	database: "WEBSITE_DATABASE"
+}); 
+
+
+db.connect((err)=> {
+	if (err) throw err;
+	console.log("MySQL is connected!");
+  });
 
 
 app.listen(5001, () =>{ console.log("Server started")});
